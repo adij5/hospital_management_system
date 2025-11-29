@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Dashboard</h2>
+<section>
+  <h3>Recent Patients</h3>
+  <ul>
+    {% for p in patients %}
+      <li>{{ p.first_name }} {{ p.last_name }} — <a href="/patients/{{ p.id }}/edit">Edit</a></li>
+    {% else %}
+      <li>No patients yet.</li>
+    {% endfor %}
+  </ul>
+</section>
+<section>
+  <h3>Upcoming Appointments</h3>
+  <ul>
+    {% for a in appointments %}
+      <li>{{ a.scheduled_at }} — {{ a.patient.first_name }} {{ a.patient.last_name }} with {{ a.doctor }}</li>
+    {% else %}
+      <li>No appointments.</li>
+    {% endfor %}
+  </ul>
+</section>
+{% endblock %}

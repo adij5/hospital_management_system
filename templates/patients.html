@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Patients</h2>
+<table>
+  <thead><tr><th>ID</th><th>Name</th><th>Phone</th><th>Email</th><th>Actions</th></tr></thead>
+  <tbody>
+    {% for p in patients %}
+    <tr>
+      <td>{{ p.id }}</td>
+      <td>{{ p.first_name }} {{ p.last_name }}</td>
+      <td>{{ p.phone }}</td>
+      <td>{{ p.email }}</td>
+      <td>
+        <a href="/patients/{{ p.id }}/edit">Edit</a>
+        <form method="post" action="/patients/{{ p.id }}/delete" style="display:inline" onsubmit="return confirm('Delete patient?')">
+          <button type="submit">Delete</button>
+        </form>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

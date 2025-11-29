@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Add Patient</h2>
+<form method="post">
+  <label>First name: <input name="first_name" required></label><br>
+  <label>Last name: <input name="last_name"></label><br>
+  <label>DOB: <input type="date" name="dob"></label><br>
+  <label>Phone: <input name="phone"></label><br>
+  <label>Email: <input type="email" name="email"></label><br>
+  <label>Address: <input name="address"></label><br>
+  <button type="submit">Add</button>
+</form>
+{% endblock %}
